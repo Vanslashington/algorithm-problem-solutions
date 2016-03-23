@@ -1,12 +1,14 @@
 def sumOfMultiples(n):
-    return sum(x for x in xrange(n) if x%3 == 0 or x%5 == 0)
+    return sum(x for x in xrange(3, n, 3)) + \
+           sum(x for x in xrange(5, n, 5) if x%3 != 0)
 
 def test():
     s = sumOfMultiples
     assert s(10) == 23
     assert s(100) == 2318
     assert s(1) == 0
-    print "passed"
+    assert s(10**8) > 0
+    print "PASSED"
 
 #test()
 t = int(raw_input())
